@@ -5,13 +5,11 @@ import { SITE_TITLE } from '../consts';
 
 <header class="bg-linear-to-r from-white to-black relative z-50">
   <nav class="flex p-4 h-24 items-center justify-between">
-    <!-- Sol Logo -->
     <div class="flex text-5xl shrink-0 items-center font-nasa mix-blend-difference text-white">
       TARAGAY
     </div>
 
-    <!-- Menü -->
-    <div class="sm:ml-6 sm:flex items-center space-x-6">
+    <div class="sm:ml-6 sm:block">
       <div class="flex space-x-4">
         <a href="/" class="px-3 py-2 text-md mix-blend-difference text-white">Ana Sayfa</a>
         <a href="/hakkimizda" class="px-3 py-2 text-md mix-blend-difference text-white">Hakkımızda</a>
@@ -26,7 +24,7 @@ import { SITE_TITLE } from '../consts';
             Başvurular
           </a>
           <ul
-            class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200 group-hover:block hover:block focus-within:block z-50" 
+           class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200 group-hover:block hover:block focus-within:block" 
           >
             <li>
               <a
@@ -35,8 +33,8 @@ import { SITE_TITLE } from '../consts';
                 rel="noopener noreferrer"
                 class="block px-4 py-2 hover:bg-white/20 flex items-center justify-between"
               >
-                <span>Dikey İnişli Roket Yarışması</span>
-                <span class="ml-2 text-emerald-300 font-semibold">(başvur)</span>
+                    <span>Dikey İnişli Roket Yarışması</span>
+                    <span class="ml-2 text-emerald-300 font-semibold">(başvur)</span>
               </a>
             </li>
             <li>
@@ -55,35 +53,6 @@ import { SITE_TITLE } from '../consts';
 
         <a href="/galeri" class="px-3 py-2 text-md mix-blend-difference text-white">Galeri</a>
         <a href="/bize-ulasin" class="px-3 py-2 text-md mix-blend-difference text-white">Bize Ulaşın</a>
-      </div>
-
-      <!-- 🌐 Sosyal Medya İkonları -->
-      <div class="hidden md:flex space-x-4 items-center ml-4">
-        <!-- Instagram -->
-        <a
-          href="https://www.instagram.com/taragay.space"  <!-- 📌 kendi linkini koy -->
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-white hover:text-pink-400 transition-colors duration-200"
-          aria-label="Instagram"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M7.5 2C4.5 2 2 4.5 2 7.5v9C2 19.5 4.5 22 7.5 22h9c3 0 5.5-2.5 5.5-5.5v-9C22 4.5 19.5 2 16.5 2h-9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm4.8-2a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/>
-          </svg>
-        </a>
-
-        <!-- YouTube -->
-        <a
-          href="https://www.youtube.com/@taragay-space"  <!-- 📌 kendi linkini koy -->
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-white hover:text-red-500 transition-colors duration-200"
-          aria-label="YouTube"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M23.5 6.2s-.2-1.6-.9-2.3c-.8-.9-1.7-.9-2.1-1C16.5 2.5 12 2.5 12 2.5s-4.5 0-8.5.4c-.4.1-1.3.1-2.1 1-.7.7-.9 2.3-.9 2.3S0 8.1 0 10v1.9c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.8.2 7.6.4 7.6.4s4.5 0 8.5-.4c.4-.1 1.3-.1 2.1-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8V10c0-1.9-.2-3.8-.2-3.8zM9.7 14.5V8.6l6.3 2.9-6.3 3z"/>
-          </svg>
-        </a>
       </div>
     </div>
   </nav>
