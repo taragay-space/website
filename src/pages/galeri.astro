@@ -5,6 +5,18 @@ const images = [
   { src: "/galeri/roket1.jpg", alt: "Roket 1" },
   { src: "/galeri/roket2.jpg", alt: "Roket 2" },
   { src: "/galeri/roket3.jpg", alt: "Roket 3" },
+  { src: "/galeri/roket4.jpg", alt: "Roket 4" },
+  { src: "/galeri/roket5.jpg", alt: "Roket 5" },
+  { src: "/galeri/roket6.jpg", alt: "Roket 6" },
+  { src: "/galeri/roket7.jpg", alt: "Roket 7" },
+  { src: "/galeri/roket8.jpg", alt: "Roket 8" },
+  { src: "/galeri/roket9.jpg", alt: "Roket 9" },
+  { src: "/galeri/roket10.jpg", alt: "Roket 10" },
+  { src: "/galeri/roket11.jpg", alt: "Roket 11" },
+  { src: "/galeri/roket12.jpg", alt: "Roket 12" },
+  { src: "/galeri/roket13.jpg", alt: "Roket 13" },
+  { src: "/galeri/roket14.jpg", alt: "Roket 14" },
+  { src: "/galeri/roket15.jpg", alt: "Roket 15" },
 ];
 ---
 
@@ -13,6 +25,7 @@ const images = [
     <div class="max-w-6xl mx-auto">
       <h1 class="text-3xl font-bold text-center mb-8 text-white">Galeri</h1>
 
+      <!-- 📸 Grid yapısı 1 → mobil, 2 → tablet, 3 → masaüstü -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {images.map((image) => (
           <div class="relative cursor-pointer group">
@@ -27,7 +40,7 @@ const images = [
       </div>
     </div>
 
-    <!-- 🟡 Lightbox (Büyütülmüş Görsel) -->
+    <!-- 🟡 Lightbox -->
     <div
       id="lightbox"
       class="hidden fixed inset-0 bg-black/80 backdrop-blur flex items-center justify-center z-50 cursor-pointer"
@@ -41,7 +54,7 @@ const images = [
     </div>
   </section>
 
-  <!-- 🧠 Basit JS ile lightbox kontrolü -->
+  <!-- 🧠 JS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const images = document.querySelectorAll('[data-src]');
