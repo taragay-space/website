@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Ürünler" description="Ürünlerimiz">
+  <section class="bg-black min-h-screen text-white px-4 py-12">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-3xl font-bold mb-8 text-center">Ürünlerimiz</h1>
+
+      <p class="text-center text-lg opacity-80 mb-10">
+        Aşağıda geliştirdiğimiz sistemleri ve ürünleri inceleyebilirsiniz 🚀
+      </p>
+
+      <!-- 🟡 Ürün kartları grid yapısı -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <!-- 🧱 Ürün Kartı 1 -->
+        <div class="bg-white/10 rounded-lg p-6 text-center hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="/galeri/roket1.jpg" alt="Ürün 1" class="w-full h-48 object-cover rounded-md mb-4" />
+          <h2 class="text-xl font-semibold mb-2">Dikey İniş Roket Modeli</h2>
+          <p class="text-sm opacity-75 mb-4">Teknofest yarışmalarında kullanılan modelimizin özel tasarımıdır.</p>
+          <a href="#" class="inline-block px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition-colors">
+            İncele
+          </a>
+        </div>
+
+        <!-- 🧱 Ürün Kartı 2 -->
+        <div class="bg-white/10 rounded-lg p-6 text-center hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="/galeri/roket2.jpg" alt="Ürün 2" class="w-full h-48 object-cover rounded-md mb-4" />
+          <h2 class="text-xl font-semibold mb-2">Kontrol Sistemi</h2>
+          <p class="text-sm opacity-75 mb-4">Yüksek hassasiyetli sensör ve kontrol sistemleri içerir.</p>
+          <a href="#" class="inline-block px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition-colors">
+            İncele
+          </a>
+        </div>
+
+        <!-- 🧱 Ürün Kartı 3 -->
+        <div class="bg-white/10 rounded-lg p-6 text-center hover:scale-105 transition-transform duration-300 shadow-lg">
+          <img src="/galeri/roket3.jpg" alt="Ürün 3" class="w-full h-48 object-cover rounded-md mb-4" />
+          <h2 class="text-xl font-semibold mb-2">Fırlatma Sistemi</h2>
+          <p class="text-sm opacity-75 mb-4">Roket fırlatma testlerinde kullanılan özel platform.</p>
+          <a href="#" class="inline-block px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition-colors">
+            İncele
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
