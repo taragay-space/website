@@ -3,6 +3,33 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="taragay.space" description="Taragay">
-    <div class="w-screen h-screen bg-[url('/taragay.png')]">
+  <section class="relative h-[100svh] w-screen overflow-hidden">
+    <!-- Arka plan video -->
+    <video
+      class="absolute inset-0 h-full w-full object-cover"
+      src="/background.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/poster.jpg"
+      aria-hidden="true"
+    >
+      <source src="/background.mp4" type="video/mp4" />
+      Tarayıcınız video etiketini desteklemiyor.
+    </video>
+
+    <!-- Karanlık overlay (yazılar için okunaklılık) -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <!-- Üstteki içerik -->
+    <div class="relative z-[1] flex h-full items-center justify-center text-center text-white">
+      <div class="px-6">
+        <h1 class="text-4xl sm:text-6xl font-bold tracking-tight">Hoş Geldiniz</h1>
+        <p class="mt-4 text-lg sm:text-xl opacity-90">
+          Video arkaplanlı ana sayfa
+        </p>
+      </div>
     </div>
+  </section>
 </Layout>
