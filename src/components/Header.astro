@@ -1,53 +1,34 @@
----
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
----
-
-<header class="bg-linear-to-r from-white to-black">
-  <nav class="flex p-4 h-24 items-center justify-between">
-    <div class="flex text-5xl shrink-0 items-center font-nasa mix-blend-difference text-white">
-      TARAGAY
-    </div>
-
-    <div class="sm:ml-6 sm:block">
-      <div class="flex space-x-4">
-        <a href="/" class="px-3 py-2 text-md mix-blend-difference text-white">Ana Sayfa</a>
-        <a href="/hakkimizda" class="px-3 py-2 text-md mix-blend-difference text-white">Hakkımızda</a>
-        <a href="/ekibimiz" class="px-3 py-2 text-md mix-blend-difference text-white">Ekibimiz</a>
-
-        <!-- 🔽 Başvurular Dropdown Menüsü -->
-        <div class="relative group">
-          <a
-            href="/basvurular"
-            class="px-3 py-2 text-md mix-blend-difference text-white inline-block"
-          >
-            Başvurular
-          </a>
-          <ul
-            class="absolute left-0 top-full mt-2 hidden w-56 rounded-md bg-black/80 text-white shadow-lg backdrop-blur group-hover:block"
-          >
-            <li>
-              <a href="/basvurular#dikey-inis" class="block px-4 py-2 hover:bg-white/20">
-                Dikey İnişli Roket Yarışması
-              </a>
-            </li>
-            <li>
-              <a href="/basvurular#ortak-proje" class="block px-4 py-2 hover:bg-white/20">
-                Ortak Proje Başvurusu
-              </a>
-            </li>
-            <li>
-              <a href="/basvurular#iletisim" class="block px-4 py-2 hover:bg-white/20">
-                İletişim
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- 🔼 Burası eklendi -->
-
-        <a href="/galeri" class="px-3 py-2 text-md mix-blend-difference text-white">Galeri</a>
-        <a href="/bize-ulasin" class="px-3 py-2 text-md mix-blend-difference text-white">Bize Ulaşın</a>
-      </div>
-    </div>
-  </nav>
-</header>
+<!-- 🔽 Başvurular Dropdown Menüsü -->
+<div class="relative group">
+  <a
+    href="#"
+    class="px-3 py-2 text-md mix-blend-difference text-white inline-block"
+  >
+    Başvurular
+  </a>
+  <ul
+    class="absolute left-0 top-full mt-2 hidden w-56 rounded-md bg-black/80 text-white shadow-lg backdrop-blur group-hover:block z-50"
+  >
+    <li>
+      <a
+        href="https://forms.gle/abc123xyz456"   <!-- 📝 buraya kendi Google Form linkini yaz -->
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block px-4 py-2 hover:bg-white/20"
+      >
+        Dikey İnişli Roket Yarışması
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://forms.gle/abc123xyz456"   <!-- istersen farklı form linki -->
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block px-4 py-2 hover:bg-white/20"
+      >
+        Ortak Proje Başvurusu
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- 🔼 -->
