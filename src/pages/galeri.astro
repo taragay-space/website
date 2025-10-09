@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-// 📌 Görselleri liste olarak tanımlayalım
 const images = [
   { src: "/galeri/roket1.jpg", alt: "Roket 1" },
   { src: "/galeri/roket2.jpg", alt: "Roket 2" },
@@ -10,43 +9,55 @@ const images = [
 ---
 
 <Layout title="Galeri" description="Galeri Sayfası">
-  <section class="bg-black min-h-screen max-w-6xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold text-center mb-8 text-white">Galeri</h1>
+  <section class="bg-black min-h-screen w-full px-4 py-12">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-3xl font-bold text-center mb-8 text-white">Galeri</h1>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      {images.map((image) => (
-        <div class="relative cursor-pointer group" on:click={() => openImage(image.src)}>
-          <img
-            src={image.src}
-            alt={image.alt}
-            class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-      ))}
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {images.map((image) => (
+          <div class="relative cursor-pointer group">
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
+              data-src={image.src}
+            />
+          </div>
+        ))}
+      </div>
     </div>
 
-    <!-- 🔽 Lightbox (Büyütülmüş Görsel) -->
+    <!-- 🟡 Lightbox (Büyütülmüş Görsel) -->
     <div
       id="lightbox"
-      class="hidden fixed inset-0 bg-black/80 backdrop-blur flex items-center justify-center z-50"
-      on:click={() => closeImage()}
+      class="hidden fixed inset-0 bg-black/80 backdrop-blur flex items-center justify-center z-50 cursor-pointer"
     >
-      <img id="lightbox-image" src="" alt="" class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl transition-transform duration-300" />
+      <img
+        id="lightbox-image"
+        src=""
+        alt=""
+        class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl transition-transform duration-300"
+      />
     </div>
   </section>
 
-  <!-- 🔽 Küçük JS: Lightbox açma / kapama -->
+  <!-- 🧠 Basit JS ile lightbox kontrolü -->
   <script>
-    function openImage(src) {
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('[data-src]');
       const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightbox-image');
-      lightboxImage.src = src;
-      lightbox.classList.remove('hidden');
-    }
 
-    function closeImage() {
-      const lightbox = document.getElementById('lightbox');
-      lightbox.classList.add('hidden');
-    }
+      images.forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImage.src = img.dataset.src;
+          lightbox.classList.remove('hidden');
+        });
+      });
+
+      lightbox.addEventListener('click', () => {
+        lightbox.classList.add('hidden');
+      });
+    });
   </script>
 </Layout>
