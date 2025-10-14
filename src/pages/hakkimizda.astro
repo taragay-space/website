@@ -3,24 +3,44 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Hakkımızda" description="Taragay Roket Takımı hakkında">
-    <div style="width:100vw; min-height:100vh; background:black; display:flex; justify-content:center; align-items:center; text-align:center; padding:2rem;">
-        <div>
-            <h1 style="color:red; font-size:3rem; margin-bottom:1rem;">Taragay Dikey İnişli Roket Takımı</h1>
-            <p style="color:red; font-size:1.2rem; line-height:1.6; margin-bottom:1rem;">
-                Taragay Roket Takımı, Türkiye’deki üniversite ve teknoloji meraklılarını bir araya getiren öncü bir topluluktur. 
-                Amacımız, dikey iniş yapabilen roketler tasarlamak ve bu alanda dünya standartlarında başarılar elde etmektir.
-            </p>
-            <p style="color:red; font-size:1.2rem; line-height:1.6; margin-bottom:1rem;">
-                Takımımızın en büyük başarıları arasında:
-                <ul style="color:red; text-align:left; display:inline-block; margin-top:0.5rem;">
- 
-                    <li>Genç mühendis ve öğrencilere yönelik eğitim ve atölyeler düzenlemek</li>
-                </ul>
-            </p>
-            <p style="color:red; font-size:1.2rem; line-height:1.6;">
-                Taragay Roket Takımı olarak, bilim ve mühendislik tutkusu ile sürekli olarak daha yüksek hedeflere ulaşmayı amaçlıyoruz. 
-                Her yeni proje, hem takımımıza hem de Türkiye’nin uzay ve teknoloji alanındaki vizyonuna katkı sağlıyor.
-            </p>
+  <section class="bg-black min-h-screen text-white flex flex-col items-center justify-center px-6 py-20">
+    <div class="max-w-4xl text-center">
+      <!-- Başlık -->
+      <h1 class="text-4xl font-bold text-emerald-400 mb-6 tracking-wide">
+        TΛRΛGΛY Dikey İnişli Roket Takımı
+      </h1>
+
+      <!-- Alt başlık -->
+      <p class="text-lg text-gray-300 mb-12">
+        2024 yılında <span class="text-emerald-400 font-semibold">Yalova Üniversitesi</span> bünyesinde kurulmuştur.  
+        Amacımız, uzay teknolojileri alanında yenilikçi çözümler üretmek, dikey inişli roket sistemleri tasarlamak  
+        ve özgün iniş algoritmaları geliştirerek Türkiye’nin uzay vizyonuna katkı sağlamaktır.
+      </p>
+
+      <!-- İçerik bölümü (2 sütunlu kart tasarımı) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <div class="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-emerald-500/30 hover:scale-105 transition-transform">
+          <h2 class="text-xl font-semibold text-emerald-400 mb-3">🎯 Vizyonumuz</h2>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Türkiye’yi dikey inişli roket teknolojilerinde öncü ülkelerden biri haline getirmek ve genç mühendisleri  
+            bu alanda geliştirmek için yeni nesil projeler üretmek.
+          </p>
         </div>
+
+        <div class="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-emerald-500/30 hover:scale-105 transition-transform">
+          <h2 class="text-xl font-semibold text-emerald-400 mb-3">🚀 Misyonumuz</h2>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Otonom sistemler, kontrol algoritmaları ve iniş teknolojileri üzerinde çalışarak  
+            Teknofest ve benzeri yarışmalarda ülkemizi başarıyla temsil etmek.
+          </p>
+        </div>
+      </div>
+
+      <!-- Ek bilgi -->
+      <p class="mt-12 text-gray-400 text-sm max-w-3xl mx-auto">
+        Taragay Roket Takımı olarak, mühendislik tutkusunu ekip ruhuyla birleştiriyor,  
+        hem yerel hem de uluslararası platformlarda Türkiye’nin adını uzay alanında duyurmayı hedefliyoruz.
+      </p>
     </div>
+  </section>
 </Layout>
