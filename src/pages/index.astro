@@ -2,46 +2,81 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Ana Sayfa" description="Taragay Roket Takımı Ana Sayfa">
-  <!-- 🟢 Hakkımızda -->
-  <section class="bg-black text-white py-24 px-6">
+<Layout title="taragay.space" description="Taragay Roket Takımı">
+  <!-- 🎥 1. Bölüm: Video Arka Plan -->
+  <section class="relative h-[100svh] w-screen overflow-hidden">
+    <video
+      class="absolute inset-0 h-full w-full object-cover"
+      src="/background.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/poster.jpg"
+      aria-hidden="true"
+    ></video>
+
+    <!-- 🔲 Karanlık overlay -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <!-- ✨ Ortadaki Yazı -->
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-white text-center">
+      <h1 class="text-6xl font-bold mb-4 tracking-widest">TΛRΛGΛY</h1>
+      <p class="text-lg text-gray-300">Dikey İnişli Roket Takımı</p>
+
+      <a href="#hakkimizda" class="mt-10 px-6 py-3 bg-emerald-500 rounded-lg hover:bg-emerald-600 transition">
+        Aşağı Kaydır ↓
+      </a>
+    </div>
+  </section>
+
+  <!-- 🟢 2. Bölüm: Hakkımızda -->
+  <section id="hakkimizda" class="bg-black text-white py-24 px-6">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-6 text-emerald-400">Hakkımızda</h2>
       <p class="text-gray-300 text-lg leading-relaxed">
         Taragay Takımı, 2024 yılında Yalova Üniversitesi'nde kurulmuştur.  
-        Uzaya yönelik projeler, dikey inişli roketler ve iniş algoritmaları geliştiriyoruz.
+        Kuruluş amacı uzaya yönelik projeler ve dikey inişli roket sistemleri üzerine çalışma yapmak,  
+        iniş algoritmaları ve konseptleri geliştirip test etmektir.
       </p>
     </div>
   </section>
 
-  <!-- 🔵 Sponsorlar Şeridi -->
+  <!-- 🟣 3. Bölüm: Sponsorlarımız -->
   <section class="bg-black py-12 overflow-hidden relative">
     <h2 class="text-center text-2xl font-bold text-emerald-400 mb-8">
       2025 Dikey İnişli Roket Yarışması Sponsorlarımız
     </h2>
+
     <div class="relative w-full overflow-hidden">
       <div class="flex animate-scroll space-x-12">
-        <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="h-16 object-contain" />
-        <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="h-16 object-contain" />
-        <img src="/sponsorlar/logo3.png" alt="Sponsor 3" class="h-16 object-contain" />
-        <img src="/sponsorlar/logo4.png" alt="Sponsor 4" class="h-16 object-contain" />
-        <img src="/sponsorlar/logo5.png" alt="Sponsor 5" class="h-16 object-contain" />
-        <!-- Sonsuz döngü için tekrar -->
-        <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="h-16 object-contain" />
-        <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="h-16 object-contain" />
+        <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
+        <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
+        <img src="/sponsorlar/logo3.png" alt="Sponsor 3" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
+        <img src="/sponsorlar/logo4.png" alt="Sponsor 4" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
+        <img src="/sponsorlar/logo5.png" alt="Sponsor 5" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
+
+        <!-- 🔁 Sonsuz döngü için tekrarlanıyor -->
+        <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
+        <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
       </div>
     </div>
+
+    <style>
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-scroll {
+        display: flex;
+        width: max-content;
+        animation: scroll 20s linear infinite;
+      }
+    </style>
   </section>
 
-  <style>
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-scroll {
-      display: flex;
-      width: max-content;
-      animation: scroll 20s linear infinite;
-    }
-  </style>
+  <!-- ⚫ 4. Bölüm: Footer -->
+  <footer class="bg-black text-gray-400 text-center py-6 border-t border-gray-700">
+    © 2025 TΛRΛGΛY | Tüm hakları saklıdır.
+  </footer>
 </Layout>
