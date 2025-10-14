@@ -2,45 +2,94 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Hakkımızda" description="Taragay Roket Takımı hakkında">
-  <section class="bg-black min-h-screen text-white flex flex-col items-center justify-center px-6 py-20">
-    <div class="max-w-4xl text-center">
+<Layout title="Başvuru Bilgilendirme" description="Taragay Roket Takımı Başvuru Ön Bilgilendirmesi">
+  <section class="bg-black min-h-screen text-white px-6 py-16">
+    <div class="max-w-5xl mx-auto space-y-12">
       <!-- Başlık -->
-      <h1 class="text-4xl font-bold text-emerald-400 mb-6 tracking-wide">
-        TΛRΛGΛY Dikey İnişli Roket Takımı
-      </h1>
-
-      <!-- Alt başlık -->
-      <p class="text-lg text-gray-300 mb-12">
-        2024 yılında <span class="text-emerald-400 font-semibold">Yalova Üniversitesi</span> bünyesinde kurulmuştur.  
-        Amacımız, uzay teknolojileri alanında yenilikçi çözümler üretmek, dikey inişli roket sistemleri tasarlamak  
-        ve özgün iniş algoritmaları geliştirerek Türkiye’nin uzay vizyonuna katkı sağlamaktır.
-      </p>
-
-      <!-- İçerik bölümü (2 sütunlu kart tasarımı) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-        <div class="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-emerald-500/30 hover:scale-105 transition-transform">
-          <h2 class="text-xl font-semibold text-emerald-400 mb-3">🎯 Vizyonumuz</h2>
-          <p class="text-gray-300 text-sm leading-relaxed">
-            Türkiye’yi dikey inişli roket teknolojilerinde öncü ülkelerden biri haline getirmek ve genç mühendisleri  
-            bu alanda geliştirmek için yeni nesil projeler üretmek.
-          </p>
-        </div>
-
-        <div class="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-emerald-500/30 hover:scale-105 transition-transform">
-          <h2 class="text-xl font-semibold text-emerald-400 mb-3">🚀 Misyonumuz</h2>
-          <p class="text-gray-300 text-sm leading-relaxed">
-            Otonom sistemler, kontrol algoritmaları ve iniş teknolojileri üzerinde çalışarak  
-            Teknofest ve benzeri yarışmalarda ülkemizi başarıyla temsil etmek.
-          </p>
-        </div>
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-emerald-400 mb-4 tracking-wide">
+          ⚠️ Başvuru Ön Bilgilendirme
+        </h1>
+        <p class="text-gray-300 max-w-3xl mx-auto text-lg">
+          Lütfen başvuru formunu doldurmadan önce aşağıdaki açıklamayı dikkatlice okuyunuz.
+        </p>
       </div>
 
-      <!-- Ek bilgi -->
-      <p class="mt-12 text-gray-400 text-sm max-w-3xl mx-auto">
-        Taragay Roket Takımı olarak, mühendislik tutkusunu ekip ruhuyla birleştiriyor,  
-        hem yerel hem de uluslararası platformlarda Türkiye’nin adını uzay alanında duyurmayı hedefliyoruz.
-      </p>
+      <!-- Ana içerik kutusu -->
+      <div class="bg-white/5 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-8 md:p-10 shadow-lg space-y-8">
+        <!-- Hakkımızda -->
+        <section>
+          <h2 class="text-2xl font-semibold text-emerald-400 mb-3">🛰️ Hakkımızda</h2>
+          <p class="text-gray-300 leading-relaxed">
+            <strong class="text-emerald-400">TARAGAY</strong>, savunma sanayii ve uzay teknolojilerine ilgi duyan öğrencilerden oluşan,
+            tamamen gönüllü bir <strong>AR-GE ve mühendislik ekibidir.</strong> Takımımız için yarışmalar bir hedef değil,
+            öğrenme ve doğrulama süreci olarak görülür. Her proje; fikirden prototipe, testten analize kadar birer “canlı laboratuvar” niteliğindedir.
+          </p>
+        </section>
+
+        <!-- Yaklaşım -->
+        <section>
+          <h2 class="text-2xl font-semibold text-emerald-400 mb-3">🔬 Yaklaşımımız</h2>
+          <ul class="list-disc list-inside space-y-2 text-gray-300">
+            <li><span class="text-emerald-400 font-medium">Yenilikçi odak:</span> Mevcut sistemleri tekrarlamak yerine, daha önce denenmemiş mimari, algoritma ve kontrol yaklaşımları üzerine çalışırız.</li>
+            <li><span class="text-emerald-400 font-medium">Yarışma = AR-GE:</span> Gereksinim analizi, tasarım, üretim, test ve doğrulama adımlarını içeren uçtan uca AR-GE döngüsü yürütürüz.</li>
+            <li><span class="text-emerald-400 font-medium">Ürünleştirme hedefi:</span> Başarılı sistemlerin ticarileştirilmesi ve ileri AR-GE adımlarına taşınması hedeflenir.</li>
+          </ul>
+        </section>
+
+        <!-- Bu seneki hedef -->
+        <section>
+          <h2 class="text-2xl font-semibold text-emerald-400 mb-3">🚀 2025 Hedefimiz</h2>
+          <p class="text-gray-300 leading-relaxed">
+            2025 sezonunda <strong>TEKNOFEST Dikey İnişli Roket Yarışması</strong>’nda aktif rol aldık.
+            Geliştirdiğimiz dikey iniş sistemleri ve kontrol algoritmalarımız ile önemli test verileri elde ettik.
+            Gelecek yıl, <span class="text-emerald-400 font-semibold">yüksek irtifa roket</span> ve
+            <span class="text-emerald-400 font-semibold">otonom sistemler</span> alanlarına genişleyerek
+            farklı yarışma kategorilerinde yer almayı hedefliyoruz.
+          </p>
+        </section>
+
+        <!-- Hedef -->
+        <section>
+          <h2 class="text-2xl font-semibold text-emerald-400 mb-3">🎯 Hedefimiz</h2>
+          <p class="text-gray-300 leading-relaxed">
+            Kısa vadede yarışmalarda rekabetçi, güvenilir sistemler üretmek;
+            orta-uzun vadede ise <strong>TARAGAY</strong> adıyla savunma teknolojileri alanında bir girişim kurmaktır.
+            Bu yolculuk hızlı değil; sürekli öğrenme ve disiplin gerektiren bir süreçtir.
+          </p>
+        </section>
+
+        <!-- Neden yeni ekip -->
+        <section>
+          <h2 class="text-2xl font-semibold text-emerald-400 mb-3">🤝 Neden Yeni Ekip Arkadaşları?</h2>
+          <p class="text-gray-300 leading-relaxed">
+            Yalova Üniversitesi ve ülkemiz adına yenilikçi projeler üretmek istiyoruz. Bu doğrultuda,
+            farklı disiplinlerden öğrencilerin katkısına ihtiyaç duyuyoruz. En çok aradığımız nitelik:
+            <span class="text-emerald-400 font-medium">proje sahipliği ve sorumluluk bilinci.</span>
+            Teknik yetkinlikler proje sürecinde birlikte geliştirilecektir.
+          </p>
+        </section>
+
+        <!-- Beklentiler -->
+        <section>
+          <h2 class="text-2xl font-semibold text-emerald-400 mb-3">⚙️ Beklentiler</h2>
+          <ul class="list-disc list-inside space-y-2 text-gray-300">
+            <li>Proje dönemlerinde zamanı doğru önceliklendirme</li>
+            <li>Takım içi iletişim, dokümantasyon ve ilerleme raporlarına uyum</li>
+            <li>Deney-hata kültürü: Test verisiyle kanıta dayalı geliştirme</li>
+          </ul>
+        </section>
+
+        <!-- Son kısım -->
+        <section>
+          <h2 class="text-2xl font-semibold text-emerald-400 mb-3">🌌 Yarışma Sonrası</h2>
+          <p class="text-gray-300 leading-relaxed">
+            Yarışma bizim için yalnızca bir son değil, yeni bir başlangıçtır.
+            Sistemlerimiz beklenen performansı gösterdiğinde, ürünleştirme ve ileri AR-GE süreçlerine geçerek
+            Türkiye’nin savunma teknolojileri ekosistemine katkı sağlamayı amaçlıyoruz.
+          </p>
+        </section>
+      </div>
     </div>
   </section>
 </Layout>
