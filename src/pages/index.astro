@@ -5,6 +5,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="taragay.space" description="Taragay Roket Takımı">
   <!-- 🎥 1. Bölüm: Video Arka Plan -->
   <section class="relative h-[100svh] w-screen overflow-hidden">
+    <!-- Arka plan video -->
     <video
       class="absolute inset-0 h-full w-full object-cover"
       src="/background.mp4"
@@ -16,16 +17,16 @@ import Layout from "../layouts/Layout.astro";
       aria-hidden="true"
     ></video>
 
-    <!-- 🔲 Karanlık overlay -->
+    <!-- Karanlık overlay -->
     <div class="absolute inset-0 bg-black/40"></div>
 
-    <!-- ✨ Ortadaki Yazı -->
-    <div class="relative z-10 flex flex-col justify-center items-center h-full text-white text-center">
-      <h1 class="text-6xl font-bold mb-4 tracking-widest">TΛRΛGΛY</h1>
-      <p class="text-lg text-gray-300">Dikey İnişli Roket Takımı</p>
-
-      <a href="#hakkimizda" class="mt-10 px-6 py-3 bg-emerald-500 rounded-lg hover:bg-emerald-600 transition">
-        Aşağı Kaydır ↓
+    <!-- 🔻 Sol alt “Aşağı Kaydır” butonu -->
+    <div class="absolute bottom-8 left-8 z-10">
+      <a
+        href="#hakkimizda"
+        class="text-emerald-400 text-lg font-semibold hover:text-emerald-300 transition flex items-center gap-2"
+      >
+        <span class="scroll-arrow">↓</span> Aşağı Kaydır
       </a>
     </div>
   </section>
@@ -56,27 +57,39 @@ import Layout from "../layouts/Layout.astro";
         <img src="/sponsorlar/logo4.png" alt="Sponsor 4" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
         <img src="/sponsorlar/logo5.png" alt="Sponsor 5" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
 
-        <!-- 🔁 Sonsuz döngü için tekrarlanıyor -->
+        <!-- Sonsuz döngü için tekrar -->
         <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
         <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="h-16 object-contain opacity-80 hover:opacity-100 transition" />
       </div>
     </div>
-
-    <style>
-      @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-scroll {
-        display: flex;
-        width: max-content;
-        animation: scroll 20s linear infinite;
-      }
-    </style>
   </section>
 
-  <!-- ⚫ 4. Bölüm: Footer -->
+  <!-- ⚫ Footer -->
   <footer class="bg-black text-gray-400 text-center py-6 border-t border-gray-700">
     © 2025 TΛRΛGΛY | Tüm hakları saklıdır.
   </footer>
+
+  <!-- 🎨 Stil -->
+  <style>
+    /* Sponsor kaydırma animasyonu */
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-scroll {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+    }
+
+    /* Aşağı Kaydır oku animasyonu */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    .scroll-arrow {
+      display: inline-block;
+      animation: bounce 1s infinite;
+    }
+  </style>
 </Layout>
