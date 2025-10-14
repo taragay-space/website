@@ -2,24 +2,46 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="taragay.space" description="Taragay">
-  <section class="relative h-[100svh] w-screen overflow-hidden">
-    <!-- Arka plan video -->
-    <video
-      class="absolute inset-0 h-full w-full object-cover"
-      src="/background.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster="/poster.jpg"
-      aria-hidden="true"
-    >
-      <source src="/background.mp4" type="video/mp4" />
-      Tarayıcınız video etiketini desteklemiyor.
-    </video>
-
-    <!-- Karanlık overlay (opsiyonel) -->
-    <div class="absolute inset-0 bg-black/40"></div>
+<Layout title="Ana Sayfa" description="Taragay Roket Takımı Ana Sayfa">
+  <!-- 🟢 Hakkımızda -->
+  <section class="bg-black text-white py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 text-emerald-400">Hakkımızda</h2>
+      <p class="text-gray-300 text-lg leading-relaxed">
+        Taragay Takımı, 2024 yılında Yalova Üniversitesi'nde kurulmuştur.  
+        Uzaya yönelik projeler, dikey inişli roketler ve iniş algoritmaları geliştiriyoruz.
+      </p>
+    </div>
   </section>
+
+  <!-- 🔵 Sponsorlar Şeridi -->
+  <section class="bg-black py-12 overflow-hidden relative">
+    <h2 class="text-center text-2xl font-bold text-emerald-400 mb-8">
+      2025 Dikey İnişli Roket Yarışması Sponsorlarımız
+    </h2>
+    <div class="relative w-full overflow-hidden">
+      <div class="flex animate-scroll space-x-12">
+        <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="h-16 object-contain" />
+        <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="h-16 object-contain" />
+        <img src="/sponsorlar/logo3.png" alt="Sponsor 3" class="h-16 object-contain" />
+        <img src="/sponsorlar/logo4.png" alt="Sponsor 4" class="h-16 object-contain" />
+        <img src="/sponsorlar/logo5.png" alt="Sponsor 5" class="h-16 object-contain" />
+        <!-- Sonsuz döngü için tekrar -->
+        <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="h-16 object-contain" />
+        <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="h-16 object-contain" />
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-scroll {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+    }
+  </style>
 </Layout>
