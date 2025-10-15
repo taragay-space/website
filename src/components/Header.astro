@@ -11,11 +11,45 @@ import { SITE_TITLE } from '../consts';
 
     <div class="sm:ml-6 sm:block">
       <div class="flex space-x-4">
-        <a href="/" class="px-3 py-2 text-md mix-blend-difference text-white">Ana Sayfa</a>
+        
+        <!-- 🔽 Ana Sayfa (Dropdown Menüsü) -->
+        <div class="relative group">
+          <a
+            href="#"
+            class="px-3 py-2 text-md mix-blend-difference text-white inline-block"
+          >
+            Ana Sayfa
+          </a>
+          <ul
+            class="absolute left-0 top-full mt-2 hidden w-64 rounded-md bg-black/80 text-white shadow-lg backdrop-blur group-hover:block transition-all"
+          >
+            <li>
+              <a
+                href="https://www.instagram.com/taragayteam/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 transition-colors"
+              >
+                <img src="/icons/instagram.png" alt="Instagram" class="w-6 h-6" />
+                <span>Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@taragayteam"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 transition-colors"
+              >
+                <img src="/icons/youtube.webp" alt="YouTube" class="w-7 h-5" />
+                <span>YouTube</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- 🔼 -->
 
-        <!-- 🟡 Yeni Ürünler Linki -->
         <a href="/urunler" class="px-3 py-2 text-md mix-blend-difference text-white">Ürünler</a>
-
         <a href="/hakkimizda" class="px-3 py-2 text-md mix-blend-difference text-white">Hakkımızda</a>
         <a href="/ekibimiz" class="px-3 py-2 text-md mix-blend-difference text-white">Ekibimiz</a>
 
@@ -56,7 +90,43 @@ import { SITE_TITLE } from '../consts';
         <!-- 🔼 -->
 
         <a href="/galeri" class="px-3 py-2 text-md mix-blend-difference text-white">Galeri</a>
-        <a href="/bize-ulasin" class="px-3 py-2 text-md mix-blend-difference text-white">Bize Ulaşın</a>
+
+        <!-- 🔽 Bize Ulaşın (Dropdown Menüsü) -->
+        <div class="relative group">
+          <a
+            href="#"
+            class="px-3 py-2 text-md mix-blend-difference text-white inline-block"
+          >
+            Bize Ulaşın
+          </a>
+          <ul
+            class="absolute left-0 top-full mt-2 hidden w-64 rounded-md bg-black/80 text-white shadow-lg backdrop-blur group-hover:block transition-all"
+          >
+            <li>
+              <a
+                href="https://www.instagram.com/taragayteam/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 transition-colors"
+              >
+                <img src="/icons/instagram.png" alt="Instagram" class="w-6 h-6" />
+                <span>Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@taragayteam"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 transition-colors"
+              >
+                <img src="/icons/youtube.webp" alt="YouTube" class="w-7 h-5" />
+                <span>YouTube</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- 🔼 -->
       </div>
     </div>
   </nav>
