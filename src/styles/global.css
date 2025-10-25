@@ -18,7 +18,7 @@ body {
   font-family: var(--font-nasa);
   margin: 0;
   padding: 0;
-  background-color: #000; /* Arka plan tonunu istersen değiştir */
+  background-color: #000;
   color: #fff;
 }
 
@@ -55,6 +55,14 @@ body {
     width: 100%;
     text-align: center;
   }
+
+  /* Dropdown menü mobilde ekran akışına uysun */
+  nav ul ul {
+    position: static;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    width: 100%;
+  }
 }
 
 /* ------------------------------------
@@ -75,15 +83,15 @@ nav ul ul {
   transition: all 0.25s ease-in-out;
 }
 
-/* Menü açıldığında görünür hale gelir */
+/* Hover (PC) durumunda görünür */
+nav ul li:hover > ul {
+  display: block;
+}
+
+/* Mobilde .open sınıfı eklenince görünür */
 nav ul ul.open {
   display: block;
   opacity: 1;
-}
-
-/* Hover durumunda yumuşak geçiş */
-nav ul li:hover > ul {
-  display: block;
 }
 
 /* Menü içindeki linklerin stili */
@@ -116,3 +124,20 @@ img {
   max-width: 100%;
 }
 
+/* ------------------------------------
+   🧩 Küçük UX Düzeltmeleri
+------------------------------------ */
+nav {
+  position: relative;
+}
+
+nav li {
+  position: relative;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
