@@ -12,23 +12,20 @@ import { SITE_TITLE } from '../consts';
     <div class="sm:ml-6 sm:block">
       <div class="flex space-x-4">
         <a href="/" class="px-3 py-2 text-md mix-blend-difference text-white">Ana Sayfa</a>
-
-        <!-- 🟡 Yeni Ürünler Linki -->
         <a href="/urunler" class="px-3 py-2 text-md mix-blend-difference text-white">Ürünler</a>
-
         <a href="/hakkimizda" class="px-3 py-2 text-md mix-blend-difference text-white">Hakkımızda</a>
         <a href="/ekibimiz" class="px-3 py-2 text-md mix-blend-difference text-white">Ekibimiz</a>
 
         <!-- 🔽 Başvurular Dropdown Menüsü -->
-        <div class="relative group cursor-pointer">
+        <div class="relative group cursor-pointer dropdown">
           <a
             href="#"
-            class="px-3 py-2 text-md mix-blend-difference text-white inline-block"
+            class="px-3 py-2 text-md mix-blend-difference text-white inline-block dropdown-toggle"
           >
             Başvurular
           </a>
           <ul
-            class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-200 dropdown-menu"
           >
             <li>
               <a
@@ -64,20 +61,26 @@ import { SITE_TITLE } from '../consts';
 
 <!-- 🔽 Dropdown JS kodu -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const dropdownToggles = document.querySelectorAll('nav .group');
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-    dropdownToggles.forEach(item => {
-      const submenu = item.querySelector('ul');
-      if (submenu) {
-        item.addEventListener('click', e => {
-          // Eğer menü içindeki linke tıklandıysa kapanmasın
-          if (e.target.tagName.toLowerCase() === 'a' && e.target.nextElementSibling) {
-            e.preventDefault();
-          }
-          submenu.classList.toggle('open');
-        });
-      }
+    dropdowns.forEach(drop => {
+      const toggle = drop.querySelector(".dropdown-toggle");
+      const menu = drop.querySelector(".dropdown-menu");
+
+      toggle.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) { // Sadece mobilde aktif
+          e.preventDefault();
+
+          // Diğer açık menüleri kapat
+          document.querySelectorAll(".dropdown-menu.open").forEach(m => {
+            if (m !== menu) m.classList.remove("open");
+          });
+
+          // Bu menüyü aç/kapa
+          menu.classList.toggle("open");
+        }
+      });
     });
   });
 </script>
