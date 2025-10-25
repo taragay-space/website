@@ -9,8 +9,22 @@ import { SITE_TITLE } from '../consts';
       TARAGAY
     </div>
 
-    <div class="sm:ml-6 sm:block">
-      <div class="flex space-x-4">
+    <button
+  id="nav-toggle"
+  class="sm:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
+  aria-controls="primary-nav"
+  aria-expanded="false"
+  aria-label="Menüyü aç/kapat"
+  type="button"
+>
+  <span class="sr-only">Menüyü aç/kapat</span>
+  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+  </svg>
+</button>
+
+    <div id="primary-nav" class="hidden sm:ml-6 sm:block">
+      <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
         <a href="/" class="px-3 py-2 text-md mix-blend-difference text-white">Ana Sayfa</a>
 
         <!-- 🟡 Yeni Ürünler Linki -->
@@ -23,12 +37,10 @@ import { SITE_TITLE } from '../consts';
         <div class="relative group">
           <a id="menu-basvurular-trigger" aria-haspopup="true" aria-expanded="false" href="#"
             class="px-3 py-2 text-md mix-blend-difference text-white inline-block"
-          >
-            Başvurular
-          </a>
+          >Başvurular</a>
           <ul
-id="menu-basvurular-dropdown" role="menu"             class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200 group-hover:block hover:block focus-within:block" 
-          >
+            class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200 group-hover:block hover:block focus-within:block" 
+           id="menu-basvurular-dropdown">
             <li>
               <a
                 href="https://forms.gle/dYwdF6eTEquCkMsQ7"
@@ -58,49 +70,91 @@ id="menu-basvurular-dropdown" role="menu"             class="absolute left-0 top
         <a href="/bize-ulasin" class="px-3 py-2 text-md mix-blend-difference text-white">Bize Ulaşın</a>
       </div>
     </div>
-  
   <script is:inline>
-    (function(){
-      var trigger = document.getElementById('menu-basvurular-trigger');
-      var dropdown = document.getElementById('menu-basvurular-dropdown');
-      if(!trigger || !dropdown) return;
-      function isMobile(){ return window.matchMedia('(max-width: 768px)').matches; }
-      function closeDropdown(){
-        if(!dropdown.classList.contains('hidden')){
-          dropdown.classList.add('hidden');
-          trigger.setAttribute('aria-expanded','false');
+  (function(){
+    var toggle = document.getElementById('nav-toggle');
+    var nav = document.getElementById('primary-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function(){
+        var isHidden = nav.classList.contains('hidden');
+        if (isHidden) {
+          nav.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded','true');
+          document.body.classList.add('overflow-hidden');
+        } else {
+          nav.classList.add('hidden');
+          toggle.setAttribute('aria-expanded','false');
+          document.body.classList.remove('overflow-hidden');
         }
-      }
-      trigger.addEventListener('click', function(e){
-        if(isMobile()){
-          e.preventDefault();
-          var isHidden = dropdown.classList.contains('hidden');
-          if(isHidden){
-            dropdown.classList.remove('hidden');
-            trigger.setAttribute('aria-expanded','true');
-          }else{
-            dropdown.classList.add('hidden');
-            trigger.setAttribute('aria-expanded','false');
+      });
+
+      // Close when clicking outside on mobile
+      document.addEventListener('click', function(e){
+        if (window.matchMedia('(max-width: 640px)').matches) {
+          if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+            if (!nav.classList.contains('hidden')){
+              nav.classList.add('hidden');
+              toggle.setAttribute('aria-expanded','false');
+              document.body.classList.remove('overflow-hidden');
+            }
           }
         }
       });
-      document.addEventListener('click', function(e){
-        if(!isMobile()) return;
-        if(!trigger.contains(e.target) && !dropdown.contains(e.target)){
-          closeDropdown();
-        }
-      });
-      window.addEventListener('resize', function(){
-        if(!isMobile()){
-          // ensure closed on desktop initial state relies on hover
-          closeDropdown();
-        }
-      });
-      // Optional: close on Escape
+
+      // Close with ESC
       document.addEventListener('keydown', function(e){
-        if(e.key === 'Escape'){ closeDropdown(); }
+        if (e.key === 'Escape') {
+          if (!nav.classList.contains('hidden')){
+            nav.classList.add('hidden');
+            toggle.setAttribute('aria-expanded','false');
+            document.body.classList.remove('overflow-hidden');
+          }
+        }
       });
-    })();
-  </script>
+
+      // Reset to hidden on resize up
+      window.addEventListener('resize', function(){
+        if (!window.matchMedia('(max-width: 640px)').matches) {
+          nav.classList.add('hidden');
+          toggle.setAttribute('aria-expanded','false');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+    }
+
+    // Başvurular dropdown: click-to-toggle on mobile
+    var basvuruTrigger = document.getElementById('menu-basvurular-trigger');
+    var basvuruDropdown = document.getElementById('menu-basvurular-dropdown');
+
+    function isMobile(){ return window.matchMedia('(max-width: 640px)').matches; }
+
+    if (basvuruTrigger && basvuruDropdown) {
+      basvuruTrigger.addEventListener('click', function(ev){
+        if (isMobile()) {
+          ev.preventDefault();
+          var hidden = basvuruDropdown.classList.contains('hidden');
+          if (hidden) {
+            basvuruDropdown.classList.remove('hidden');
+            basvuruTrigger.setAttribute('aria-expanded','true');
+          } else {
+            basvuruDropdown.classList.add('hidden');
+            basvuruTrigger.setAttribute('aria-expanded','false');
+          }
+        }
+      });
+
+      // Close Basvurular dropdown when clicking outside (mobile)
+      document.addEventListener('click', function(e){
+        if (!isMobile()) return;
+        if (basvuruDropdown && !basvuruDropdown.classList.contains('hidden')) {
+          if (!basvuruDropdown.contains(e.target) && !basvuruTrigger.contains(e.target)){
+            basvuruDropdown.classList.add('hidden');
+            basvuruTrigger.setAttribute('aria-expanded','false');
+          }
+        }
+      });
+    }
+  })();
+</script>
 </nav>
 </header>
