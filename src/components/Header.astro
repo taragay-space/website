@@ -21,14 +21,13 @@ import { SITE_TITLE } from '../consts';
 
         <!-- 🔽 Başvurular Dropdown Menüsü -->
         <div class="relative group">
-          <a
-            href="#"
+          <a id="menu-basvurular-trigger" aria-haspopup="true" aria-expanded="false" href="#"
             class="px-3 py-2 text-md mix-blend-difference text-white inline-block"
           >
             Başvurular
           </a>
           <ul
-            class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200 group-hover:block hover:block focus-within:block" 
+id="menu-basvurular-dropdown" role="menu"             class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200 group-hover:block hover:block focus-within:block" 
           >
             <li>
               <a
@@ -59,5 +58,49 @@ import { SITE_TITLE } from '../consts';
         <a href="/bize-ulasin" class="px-3 py-2 text-md mix-blend-difference text-white">Bize Ulaşın</a>
       </div>
     </div>
-  </nav>
+  
+  <script is:inline>
+    (function(){
+      var trigger = document.getElementById('menu-basvurular-trigger');
+      var dropdown = document.getElementById('menu-basvurular-dropdown');
+      if(!trigger || !dropdown) return;
+      function isMobile(){ return window.matchMedia('(max-width: 768px)').matches; }
+      function closeDropdown(){
+        if(!dropdown.classList.contains('hidden')){
+          dropdown.classList.add('hidden');
+          trigger.setAttribute('aria-expanded','false');
+        }
+      }
+      trigger.addEventListener('click', function(e){
+        if(isMobile()){
+          e.preventDefault();
+          var isHidden = dropdown.classList.contains('hidden');
+          if(isHidden){
+            dropdown.classList.remove('hidden');
+            trigger.setAttribute('aria-expanded','true');
+          }else{
+            dropdown.classList.add('hidden');
+            trigger.setAttribute('aria-expanded','false');
+          }
+        }
+      });
+      document.addEventListener('click', function(e){
+        if(!isMobile()) return;
+        if(!trigger.contains(e.target) && !dropdown.contains(e.target)){
+          closeDropdown();
+        }
+      });
+      window.addEventListener('resize', function(){
+        if(!isMobile()){
+          // ensure closed on desktop initial state relies on hover
+          closeDropdown();
+        }
+      });
+      // Optional: close on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){ closeDropdown(); }
+      });
+    })();
+  </script>
+</nav>
 </header>
