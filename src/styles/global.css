@@ -1,12 +1,36 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: "Nasalization";
-    font-style: normal;
-    font-weight: 400;
-    src: url("/fonts/nasalization.woff") format("woff");
+  font-family: "Nasalization";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/nasalization.woff") format("woff");
 }
 
 @theme {
-    --font-nasa: "Nasalization", sans-serif;
+  --font-nasa: "Nasalization", sans-serif;
+}
+
+body {
+  font-family: var(--font-nasa);
+}
+
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
