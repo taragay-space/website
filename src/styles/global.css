@@ -1,3 +1,6 @@
+/* ------------------------------------
+   🌙 Tailwind ve Tema Ayarları
+------------------------------------ */
 @import "tailwindcss";
 
 @font-face {
@@ -13,8 +16,15 @@
 
 body {
   font-family: var(--font-nasa);
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* Arka plan tonunu istersen değiştir */
+  color: #fff;
 }
 
+/* ------------------------------------
+   📱 Mobil Uyumluluk (Responsive)
+------------------------------------ */
 @media (max-width: 768px) {
   header nav {
     flex-direction: column;
@@ -33,4 +43,76 @@ body {
   .grid {
     grid-template-columns: 1fr;
   }
+
+  /* Menü elemanları mobilde alt alta gelsin */
+  nav .flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
 }
+
+/* ------------------------------------
+   🔽 Dropdown Menü Ayarları
+------------------------------------ */
+
+/* Alt menü başlangıçta gizli */
+nav ul ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  min-width: 12rem;
+  z-index: 100;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Menü açıldığında görünür hale gelir */
+nav ul ul.open {
+  display: block;
+  opacity: 1;
+}
+
+/* Hover durumunda yumuşak geçiş */
+nav ul li:hover > ul {
+  display: block;
+}
+
+/* Menü içindeki linklerin stili */
+nav ul ul li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+nav ul ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ------------------------------------
+   💎 Ekstra Görsel Düzeltmeler
+------------------------------------ */
+a {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
