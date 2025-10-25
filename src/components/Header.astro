@@ -20,7 +20,7 @@ import { SITE_TITLE } from '../consts';
         <a href="/ekibimiz" class="px-3 py-2 text-md mix-blend-difference text-white">Ekibimiz</a>
 
         <!-- 🔽 Başvurular Dropdown Menüsü -->
-        <div class="relative group">
+        <div class="relative group cursor-pointer">
           <a
             href="#"
             class="px-3 py-2 text-md mix-blend-difference text-white inline-block"
@@ -28,7 +28,7 @@ import { SITE_TITLE } from '../consts';
             Başvurular
           </a>
           <ul
-            class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200 group-hover:block hover:block focus-within:block" 
+            class="absolute left-0 top-full hidden w-72 rounded-md bg-white/20 text-white text-[15px] shadow-lg backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-200"
           >
             <li>
               <a
@@ -61,3 +61,24 @@ import { SITE_TITLE } from '../consts';
     </div>
   </nav>
 </header>
+
+<!-- 🔽 Dropdown JS kodu -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownToggles = document.querySelectorAll('nav .group');
+
+    dropdownToggles.forEach(item => {
+      const submenu = item.querySelector('ul');
+      if (submenu) {
+        item.addEventListener('click', e => {
+          // Eğer menü içindeki linke tıklandıysa kapanmasın
+          if (e.target.tagName.toLowerCase() === 'a' && e.target.nextElementSibling) {
+            e.preventDefault();
+          }
+          submenu.classList.toggle('open');
+        });
+      }
+    });
+  });
+</script>
+<!-- 🔼 -->
