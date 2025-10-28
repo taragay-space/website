@@ -1,5 +1,5 @@
 ---
-/* import yok */
+import HeaderLink from "../components/HeaderLink.astro";
 ---
 
 <header class="relative z-50">
@@ -9,13 +9,13 @@
 
     <!-- Masaüstü menü -->
     <div class="hidden md:flex items-center gap-2">
-      <a href="/" class="px-3 py-2 opacity-90 hover:opacity-100">Ana Sayfa</a>
+      <HeaderLink href="/">Ana Sayfa</HeaderLink>
       <button id="apply-open" class="px-3 py-2 underline underline-offset-4">Başvurular</button>
-      <a href="/hakkimizda" class="px-3 py-2 opacity-90 hover:opacity-100">Hakkımızda</a>
-      <a href="/ekibimiz" class="px-3 py-2 opacity-90 hover:opacity-100">Ekibimiz</a>
-      <a href="/urunler" class="px-3 py-2 opacity-90 hover:opacity-100">Ürünler</a>
-      <a href="/galeri" class="px-3 py-2 opacity-90 hover:opacity-100">Galeri</a>
-      <a href="/bize-ulasin" class="px-3 py-2 opacity-90 hover:opacity-100">Bize Ulaşın</a>
+      <HeaderLink href="/hakkimizda">Hakkımızda</HeaderLink>
+      <HeaderLink href="/ekibimiz">Ekibimiz</HeaderLink>
+      <HeaderLink href="/urunler">Ürünler</HeaderLink>
+      <HeaderLink href="/galeri">Galeri</HeaderLink>
+      <HeaderLink href="/bize-ulasin">Bize Ulaşın</HeaderLink>
     </div>
 
     <!-- Mobil burger -->
@@ -29,28 +29,28 @@
   </nav>
 
   <!-- Karanlık arka plan -->
-  <div id="backdrop" class="fixed inset-0 bg-black/70 opacity-0 invisible transition-opacity duration-200"></div>
+  <div id="backdrop" class="fixed inset-0 z-[55] bg-black/70 opacity-0 invisible transition-opacity duration-200"></div>
 
   <!-- Sağdan açılan çekmece: genişlik ekranın 1/3'ü -->
   <aside id="mobile-drawer"
-    class="fixed top-0 right-0 h-[100svh] w-[33vw] translate-x-full transition-transform duration-200
+    class="fixed top-0 right-0 z-[70] h-[100svh] w-[33vw] max-w-[22rem] min-w-[18rem] translate-x-full transition-transform duration-200
            bg-neutral-950 border-l border-white/10 shadow-2xl">
     <nav class="px-4 py-6">
       <ul class="space-y-2">
-        <li><a href="/" data-nav-link class="block px-2 py-3 text-lg">Ana Sayfa</a></li>
+        <li><HeaderLink href="/" data-nav-link class="block px-2 py-3 text-lg">Ana Sayfa</HeaderLink></li>
         <li><button id="apply-open-mobile" class="w-full text-left block px-2 py-3 text-lg underline underline-offset-4">Başvurular</button></li>
-        <li><a href="/hakkimizda" data-nav-link class="block px-2 py-3 text-lg">Hakkımızda</a></li>
-        <li><a href="/ekibimiz" data-nav-link class="block px-2 py-3 text-lg">Ekibimiz</a></li>
-        <li><a href="/urunler" data-nav-link class="block px-2 py-3 text-lg">Ürünler</a></li>
-        <li><a href="/galeri" data-nav-link class="block px-2 py-3 text-lg">Galeri</a></li>
-        <li><a href="/bize-ulasin" data-nav-link class="block px-2 py-3 text-lg">Bize Ulaşın</a></li>
+        <li><HeaderLink href="/hakkimizda" data-nav-link class="block px-2 py-3 text-lg">Hakkımızda</HeaderLink></li>
+        <li><HeaderLink href="/ekibimiz" data-nav-link class="block px-2 py-3 text-lg">Ekibimiz</HeaderLink></li>
+        <li><HeaderLink href="/urunler" data-nav-link class="block px-2 py-3 text-lg">Ürünler</HeaderLink></li>
+        <li><HeaderLink href="/galeri" data-nav-link class="block px-2 py-3 text-lg">Galeri</HeaderLink></li>
+        <li><HeaderLink href="/bize-ulasin" data-nav-link class="block px-2 py-3 text-lg">Bize Ulaşın</HeaderLink></li>
       </ul>
     </nav>
   </aside>
 
   <!-- Başvurular: dokunulabilir pencere (mobilde bottom-sheet) -->
   <div id="apply-overlay"
-    class="fixed inset-0 bg-black/80 backdrop-blur-sm opacity-0 invisible transition-opacity duration-200"
+    class="fixed inset-0 z-[80] bg-black/80 backdrop-blur-sm opacity-0 invisible transition-opacity duration-200"
     role="dialog" aria-modal="true" aria-labelledby="apply-title">
     <div class="absolute inset-x-0 bottom-0 md:inset-auto md:bottom-6 md:right-6 md:max-w-md
                 bg-neutral-900 border border-white/10 rounded-t-2xl md:rounded-2xl shadow-xl">
@@ -99,8 +99,15 @@
 
       // Başvurular dialog
       const applyOverlay = $('#apply-overlay');
-      const openApply = () => { applyOverlay.classList.remove('opacity-0','invisible'); closeDrawer(); };
-      const closeApply = () => { applyOverlay.classList.add('opacity-0','invisible'); };
+      const openApply = () => { 
+        applyOverlay.classList.remove('opacity-0','invisible'); 
+        document.body.style.overflow='hidden'; 
+        closeDrawer(); 
+      };
+      const closeApply = () => { 
+        applyOverlay.classList.add('opacity-0','invisible'); 
+        document.body.style.overflow=''; 
+      };
 
       $('#apply-open')?.addEventListener('click', openApply);
       $('#apply-open-mobile')?.addEventListener('click', openApply);
