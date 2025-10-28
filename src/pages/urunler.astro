@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { useState } from "preact/hooks";
+import { products } from "../data/products";
 ---
 
 <Layout title="Ürünler" description="Ürünlerimiz">
@@ -11,87 +11,21 @@ import { useState } from "preact/hooks";
         Aşağıda geliştirdiğimiz sistemleri ve ürünleri inceleyebilirsiniz 🚀
       </p>
 
-      <!-- 🟡 Ürün kartları grid yapısı -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-
-        <!-- 🧱 Ürün Kartı 1 -->
-        <ProductCard
-          title="RC ve İHA Uçaklar İçin Modüler Yaylı İniş Mekanizması"
-          image="/galeri/inis_sistemi.png"
-          summary="4–6 kg kalkış ağırlığına sahip RC uçaklar, İHA ve SİHA sistemleri için özel olarak tasarlanmıştır. FDM (Fused Deposition Modeling) teknolojisiyle üretilmiştir."
-          details={`
-            <ul class='list-disc list-inside text-left space-y-1'>
-              <li>📦 Malzeme: Karbon fiber takviyeli naylon (PA-CF)</li>
-              <li>⚙️ Üretim: FDM 3D baskı teknolojisi</li>
-              <li>🪶 Ağırlık: ~180 g (çift bacak)</li>
-              <li>🧲 Taşıma Kapasitesi: 4–6 kg</li>
-              <li>🔩 Bağlantı: M4 paslanmaz civatalar, pirinç insertler</li>
-              <li>🛠️ Özellikler: Yaylı amortisör, modüler yapı, kolay bakım</li>
-            </ul>
-          `}
-        />
-
-        <!-- 🧱 Ürün Kartı 2 -->
-        <ProductCard
-          title="Nozzle"
-          image="/galeri/roketfoto.jpg"
-          summary="yakında"
-          details={`
-            <ul class='list-disc list-inside text-left space-y-1'>
-              <li>🚀 İtki Gücü: 100 N</li>
-              <li>🔥 Basınç Dayanımı: 40 bar</li>
-              <li>⚙️ Malzeme: Yüksek sıcaklık alaşımı</li>
-              <li>🌡️ Çalışma Sıcaklığı: 1100°C+</li>
-              <li>🧩 Üretim: CNC işleme + ısıl işlem</li>
-            </ul>
-          `}
-        />
-
-        <!-- 🧱 Ürün Kartı 3 -->
-        <ProductCard
-          title="Simülasyon Yazılımı"
-          image="/galeri/roketfoto.jpg"
-          summary="Roket ve İHA sistemlerinin uçuş analizleri için geliştirilmiş dinamik simülasyon yazılımı."
-          details={`
-            <ul class='list-disc list-inside text-left space-y-1'>
-              <li>🧮 Uçuş dinamikleri analizi</li>
-              <li>📊 Gerçek zamanlı veri görselleştirme</li>
-              <li>⚙️ Roket ve İHA sistem desteği</li>
-              <li>📈 Performans tahmin algoritmaları</li>
-              <li>🧠 MATLAB ve Python entegrasyonu</li>
-            </ul>
-          `}
-        />
-
-      </div> <!-- grid kapanışı -->
-    </div> <!-- max-w-6xl kapanışı -->
+        {products.map((p) => (
+          <article class="bg-neutral-900 border border-white/10 rounded-lg overflow-hidden">
+            <img src={p.cover} alt={p.title} loading="lazy" decoding="async" class="w-full h-48 object-cover" />
+            <div class="p-4 space-y-3">
+              <h2 class="text-xl font-semibold">{p.title}</h2>
+              <p class="opacity-80 text-sm">{p.summary}</p>
+              <a href={`/urunler/${p.slug}`}
+                 class="inline-block px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition-colors">
+                İncele
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
   </section>
 </Layout>
-
-<!-- 🧩 Ürün Kartı Bileşeni -->
----
-function ProductCard({ title, image, summary, details }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div class="bg-white/10 rounded-lg p-6 text-center hover:scale-105 transition-transform duration-300 shadow-lg">
-      <img src={image} alt={title} class="w-full h-48 object-cover rounded-md mb-4" />
-      <h2 class="text-xl font-semibold mb-2">{title}</h2>
-      <p class="text-sm opacity-75 mb-4 leading-relaxed">{summary}</p>
-
-      <button
-        onClick={() => setOpen(!open)}
-        class="inline-block px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600 transition-colors"
-      >
-        {open ? "Kapat" : "İncele"}
-      </button>
-
-      {open && (
-        <div class="mt-4 bg-black/40 border border-emerald-500 rounded-lg p-4 text-sm text-left animate-fadeIn">
-          <h3 class="text-emerald-400 font-semibold mb-2">Teknik Özellikler</h3>
-          <div dangerouslySetInnerHTML={{ __html: details }} />
-        </div>
-      )}
-    </div>
-  );
-}
