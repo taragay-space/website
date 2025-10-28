@@ -1,36 +1,31 @@
-<section class="bg-black text-white py-16 px-6">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-6">📞 Bize Ulaşın</h2>
-    <p class="text-lg opacity-80 mb-8">
-      Her türlü soru, iş birliği veya sipariş için bizimle iletişime geçebilirsiniz.
-    </p>
+---
+import Layout from "../layouts/Layout.astro";
+---
 
-    <div class="space-y-4">
-      <!-- Telefon -->
-      <a
-        href="tel:+905551234567"
-        class="block text-xl font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
-      >
-        📱 +90 555 123 45 67
-      </a>
+<Layout title="Bize Ulaşın" description="İletişim">
+  <section class="bg-black text-white py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">📞 Bize Ulaşın</h2>
+      <p class="text-lg opacity-80 mb-8">
+        Her türlü soru, iş birliği veya sipariş için bizimle iletişime geçebilirsiniz.
+      </p>
 
-      <!-- Instagram -->
-      <a
-        href="https://www.instagram.com/kullanici_adin"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="block text-lg text-emerald-400 hover:text-emerald-300 transition-colors"
-      >
-        📸 @kullanici_adin
-      </a>
+      <div class="space-y-4">
+        <!-- Telefon -->
+        <a href="tel:+905551234567" class="block text-xl font-semibold text-emerald-400 hover:text-emerald-300 transition-colors">
+          📱 +90 555 123 45 67
+        </a>
 
-      <!-- E-posta (isteğe bağlı) -->
-      <a
-        href="mailto:ornekmail@domain.com"
-        class="block text-lg text-emerald-400 hover:text-emerald-300 transition-colors"
-      >
-        ✉️ ornekmail@domain.com
-      </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/kullanici_adin" target="_blank" rel="noopener" class="block text-lg text-emerald-400 hover:text-emerald-300 transition-colors">
+          📸 @kullanici_adin
+        </a>
+
+        <!-- E-posta -->
+        <a href="mailto:ornekmail@domain.com" class="block text-lg text-emerald-400 hover:text-emerald-300 transition-colors">
+          ✉️ ornekmail@domain.com
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</Layout>
