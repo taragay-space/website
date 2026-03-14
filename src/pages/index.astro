@@ -2,89 +2,91 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="taragay.space" description="Taragay Roket Takımı">
-  <!-- 🎥 1. Bölüm: Video Arka Plan -->
-  <section class="relative h-[100svh] w-screen overflow-hidden">
-    <!-- Arka plan video -->
-    <video
-      class="absolute inset-0 h-full w-full object-cover"
-      src="/background.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster="/poster.jpg"
-      aria-hidden="true"
-    ></video>
+<Layout title="taragay.space" description="Taragay Takımı">
+    <section class="relative h-[100svh] w-screen overflow-hidden">
+        <video
+                class="absolute inset-0 h-full w-full object-cover"
+                src="/background.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                aria-hidden="true"
+        ></video>
 
-    <!-- Karanlık overlay -->
-    <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute bottom-0 left-0 z-10">
+            <a
+                    href="#hakkimizda"
+                    class="bg-black text-white transition hover:text-gray-300 text-md font-nasa font-bold flex items-center p-6 py-4"
+            >
+                aşağı kaydır
+                <span class="inline-block animate-bounce pl-2.5 pt-2.5">↓</span>
+            </a>
+        </div>
+    </section>
 
-    <!-- 🔻 Sol alt “Aşağı Kaydır” butonu -->
-    <div class="absolute bottom-8 left-8 z-10">
-      <a
-        href="#hakkimizda"
-        class="text-emerald-400 text-lg font-semibold hover:text-emerald-300 transition flex items-center gap-2"
-      >
-        <span class="scroll-arrow">↓</span> Aşağı Kaydır
-      </a>
-    </div>
-  </section>
+    <section id="hakkimizda" class="bg-black text-white p-24 text-center">
+        <h2 class="text-left text-3xl font-bold text-white font-nasa">Hakkımızda</h2>
 
-  <!-- 🟢 2. Bölüm: Hakkımızda -->
-  <section id="hakkimizda" class="bg-black text-white py-24 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6 text-emerald-400">Hakkımızda</h2>
-      <p class="text-gray-300 text-lg leading-relaxed">
-        Taragay Takımı, 2024 yılında Yalova Üniversitesi'nde kurulmuştur.  
-        Kuruluş amacı uzaya yönelik projeler ve dikey inişli roket sistemleri üzerine çalışma yapmak,  
-        iniş algoritmaları ve konseptleri geliştirip test etmektir.
-      </p>
-    </div>
-  </section>
+        <div class="flex flex-wrap gap-10">
+            <div class="w-128">
+                <h3 class="text-xl font-bold mt-6 mb-1 text-gray-400 font-nasa">TARAGAY</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    <strong class="font-nasa">TARAGAY</strong>, savunma sanayii ve uzay teknolojilerine ilgi duyan öğrencilerden oluşan,
+                    tamamen gönüllü bir <strong>AR-GE ve mühendislik ekibidir.</strong> Takımımız için yarışmalar bir hedef değil,
+                    öğrenme ve doğrulama süreci olarak görülür. Her proje; fikirden prototipe, testten analize kadar birer “canlı laboratuvar” niteliğindedir.
+                </p>
+            </div>
 
-<!-- 🟣 3. Bölüm: Sponsorlarımız -->
-<section class="bg-black py-16 text-center">
-  <h2 class="text-2xl font-bold text-emerald-400 mb-10">
-    2025 Dikey İnişli Roket Yarışması Sponsorlarımız
-  </h2>
+            <div class="w-128">
+                <h3 class="text-xl font-bold mt-6 mb-1 text-gray-400 font-nasa">TARAGAY Dikey İnişli Roket Takımı</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    2024 yılında <strong>Yalova Üniversitesi</strong> bünyesinde kurulmuştur.
+                    Amacımız, uzay teknolojileri alanında yenilikçi çözümler üretmek, dikey inişli roket sistemleri tasarlamak
+                    ve özgün iniş algoritmaları geliştirerek Türkiye’nin uzay vizyonuna katkı sağlamaktır.
+                </p>
+            </div>
 
-  <div class="flex flex-wrap justify-center items-center gap-10 px-6">
-    <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="h-20 object-contain opacity-80 hover:opacity-100 transition" />
-    <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="h-20 object-contain opacity-80 hover:opacity-100 transition" />
-    <img src="/sponsorlar/logo3.png" alt="Sponsor 3" class="h-20 object-contain opacity-80 hover:opacity-100 transition" />
-    <img src="/sponsorlar/logo4.png" alt="Sponsor 4" class="h-20 object-contain opacity-80 hover:opacity-100 transition" />
-    <img src="/sponsorlar/logo5.png" alt="Sponsor 5" class="h-20 object-contain opacity-80 hover:opacity-100 transition" />
-  </div>
-</section>
+            <div class="w-128">
+                <h3 class="text-xl font-bold mt-6 mb-1 text-gray-400 font-nasa">Vizyonumuz</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    Türkiye’yi dikey inişli roket teknolojilerinde öncü ülkelerden biri haline getirmek ve genç mühendisleri
+                    bu alanda geliştirmek için yeni nesil projeler üretmek.
+                </p>
+            </div>
 
+            <div class="w-128">
+                <h3 class="text-xl font-bold mt-6 mb-1 text-gray-400 font-nasa">Hedefimiz</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    Kısa vadede yarışmalarda rekabetçi, güvenilir sistemler üretmek;
+                    orta-uzun vadede ise <strong class="font-nasa">TARAGAY</strong> adıyla savunma teknolojileri alanında bir girişim kurmaktır.
+                    Bu yolculuk hızlı değil; sürekli öğrenme ve disiplin gerektiren bir süreçtir.
+                </p>
+            </div>
 
-  <!-- ⚫ Footer -->
-  <footer class="bg-black text-gray-400 text-center py-6 border-t border-gray-700">
-    © 2025 TΛRΛGΛY | Tüm hakları saklıdır.
-  </footer>
+            <div class="w-128">
+                <h3 class="text-xl font-bold mt-6 mb-1 text-gray-400 font-nasa">Misyonumuz</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    Otonom sistemler, kontrol algoritmaları ve iniş teknolojileri üzerinde çalışarak
+                    Teknofest ve benzeri yarışmalarda ülkemizi başarıyla temsil etmek.
+                </p>
+            </div>
+        </div>
 
-  <!-- 🎨 Stil -->
-  <style>
-    /* Sponsor kaydırma animasyonu */
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-scroll {
-      display: flex;
-      width: max-content;
-      animation: scroll 20s linear infinite;
-    }
+        <p class="pt-6 text-gray-300 mt-6 text-xl leading-relaxed">
+            Taragay Roket Takımı olarak, mühendislik tutkusunu ekip ruhuyla birleştiriyor,
+            hem yerel hem de uluslararası platformlarda Türkiye’nin adını uzay alanında duyurmayı hedefliyoruz.
+        </p>
+    </section>
 
-    /* Aşağı Kaydır oku animasyonu */
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-    }
-    .scroll-arrow {
-      display: inline-block;
-      animation: bounce 1s infinite;
-    }
-  </style>
+    <section id="sponsorlarimiz" class="bg-black text-white px-24 text-center">
+        <h2 class="text-left text-3xl font-bold text-white font-nasa">2025 Dikey İnişli Roket Yarışması Sponsorlarımız</h2>
+
+        <div class="flex flex-wrap gap-10 px-12 pt-6 pb-24">
+            <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
+            <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
+            <img src="/sponsorlar/logo3.png" alt="Sponsor 3" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
+            <img src="/sponsorlar/logo4.png" alt="Sponsor 4" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
+        </div>
+    </section>
 </Layout>

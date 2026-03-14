@@ -10,67 +10,41 @@ const images = [
   { src: "/galeri/roket6.jpg", alt: "Roket 6" },
   { src: "/galeri/roket7.jpg", alt: "Roket 7" },
   { src: "/galeri/roket8.png", alt: "Roket 8" },
-  { src: "/galeri/roket9.jpg", alt: "Roket 9" },
-  { src: "/galeri/roket10.jpg", alt: "Roket 10" },
-  { src: "/galeri/roket11.jpg", alt: "Roket 11" },
-  { src: "/galeri/roket12.jpg", alt: "Roket 12" },
-  { src: "/galeri/roket13.jpg", alt: "Roket 13" },
-  { src: "/galeri/roket14.jpg", alt: "Roket 14" },
-  { src: "/galeri/roket15.jpg", alt: "Roket 15" },
 ];
 ---
 
-<Layout title="Galeri" description="Galeri Sayfası">
-  <section class="bg-black min-h-screen w-full px-4 py-12">
-    <div class="max-w-6xl mx-auto">
-      <h1 class="text-3xl font-bold text-center mb-8 text-white">Galeri</h1>
+<script>
+    let lastScroll = 0;
 
-      <!-- 📸 Grid yapısı 1 → mobil, 2 → tablet, 3 → masaüstü -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {images.map((image) => (
-          <div class="relative cursor-pointer group">
-            <img
-              src={image.src}
-              alt={image.alt}
-              class="w-full h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
-              data-src={image.src}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    const scrolldown = document.getElementById("scrolldown")!;
 
-    <!-- 🟡 Lightbox -->
-    <div
-      id="lightbox"
-      class="hidden fixed inset-0 bg-black/80 backdrop-blur flex items-center justify-center z-50 cursor-pointer"
-    >
-      <img
-        id="lightbox-image"
-        src=""
-        alt=""
-        class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl transition-transform duration-300"
-      />
-    </div>
-  </section>
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
 
-  <!-- 🧠 JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const images = document.querySelectorAll('[data-src]');
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImage = document.getElementById('lightbox-image');
+        if (currentScroll != lastScroll) {
+            scrolldown.classList.add("hidden");
+        } else scrolldown.classList.remove("hidden");
 
-      images.forEach(img => {
-        img.addEventListener('click', () => {
-          lightboxImage.src = img.dataset.src;
-          lightbox.classList.remove('hidden');
-        });
-      });
-
-      lightbox.addEventListener('click', () => {
-        lightbox.classList.add('hidden');
-      });
+        lastScroll = currentScroll;
     });
-  </script>
+</script>
+
+<Layout title="Galeri" description="Galeri Sayfası">
+    <div id="scrolldown" class="absolute bottom-0 left-0 z-10">
+        <div class="text-white text-md font-nasa font-bold flex items-center p-6 py-4">
+            aşağı kaydır
+            <span class="inline-block animate-bounce pl-2.5 pt-2.5">↓</span>
+        </div>
+    </div>
+
+    {images.map((image) => (
+            <div class="relative select-none">
+                <img
+                        src={image.src}
+                        alt={image.alt}
+                        class="w-full h-full object-cover shadow-md"
+                        data-src={image.src}
+                />
+            </div>
+    ))}
 </Layout>
