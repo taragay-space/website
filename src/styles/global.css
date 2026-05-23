@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+    background: black;
+}
+
 @font-face {
     font-family: "Nasalization";
     font-style: normal;
@@ -9,4 +13,81 @@
 
 @theme {
     --font-nasa: "Nasalization", sans-serif;
+}
+
+@keyframes removeOnScrollI {
+    0% {
+        translate: 0;
+    }
+    60% {
+        translate: calc(-100%);
+    }
+}
+
+@keyframes removeOnScrollG {
+    0% {
+        translate: 0;
+    }
+    10% {
+        translate: calc(-250%);
+    }
+}
+
+.removeOnScrollG {
+    animation-timeline: scroll();
+    animation-name: removeOnScrollG;
+    animation-duration: auto;
+    animation-timing-function: ease-in;
+}
+
+.removeOnScrollI {
+    animation-timeline: scroll();
+    animation-name: removeOnScrollI;
+    animation-duration: auto;
+    animation-timing-function: ease-in;
+}
+
+.halfborder-br {
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, transparent 75%, var(--color-emerald-400) 75%) 20;
+}
+
+.halfborder-bl {
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to left, transparent 75%, var(--color-emerald-400) 75%) 20;
+}
+
+.viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+    will-change: transform;
+}
+
+.item {
+    flex: 0 0 auto;
+    width: 40vw;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }

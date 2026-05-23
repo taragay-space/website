@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="taragay.space" description="Taragay Takımı">
-    <section class="relative h-[100svh] w-screen overflow-hidden">
+    <section class="grid place-center h-[100svh] w-full overflow-hidden">
         <video
                 class="absolute inset-0 h-full w-full object-cover"
                 src="/background.mp4"
@@ -14,7 +14,7 @@ import Layout from "../layouts/Layout.astro";
                 aria-hidden="true"
         ></video>
 
-        <div class="absolute bottom-0 left-0 z-10">
+        <div class="removeOnScrollI absolute bottom-0 left-0 z-10">
             <a
                     href="#hakkimizda"
                     class="bg-black text-white transition hover:text-gray-300 text-md font-nasa font-bold flex items-center p-6 py-4"
@@ -25,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
     </section>
 
-    <section id="hakkimizda" class="bg-black text-white p-16 text-center">
+    <section id="hakkimizda" class="bg-black text-white p-16 text-center w-full">
         <h2 class="text-3xl font-bold text-white font-nasa">Hakkımızda</h2>
 
         <div class="flex flex-wrap items-center justify-center gap-10">
@@ -80,13 +80,26 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <section id="sponsorlarimiz" class="bg-black text-white text-center p-8">
-        <h2 class="text-3xl font-bold text-white font-nasa">2025 Dikey İnişli Roket Yarışması Sponsorlarımız</h2>
+        <h2 class="text-3xl font-bold text-white font-nasa">2026 Sponsorlarımız</h2>
 
         <div class="flex flex-wrap justify-center items-center gap-10 px-12 pt-6 pb-24">
-            <img src="/sponsorlar/logo1.png" alt="Sponsor 1" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
-            <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
-            <img src="/sponsorlar/logo3.png" alt="Sponsor 3" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
-            <img src="/sponsorlar/logo4.png" alt="Sponsor 4" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
+            <img src="/sponsorlar/logoy1.png" alt="Sponsor 1" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
+            <img src="/sponsorlar/logoy2.png" alt="Sponsor 2" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
+            <img src="/sponsorlar/izeltas-logo.svg" alt="Sponsor 3" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
+            <img src="/sponsorlar/logo (1).png" alt="Sponsor 4" class="w-60 object-contain opacity-80 hover:opacity-100 transition" />
+            <img src="/sponsorlar/logoy5.png" alt="Sponsor 5" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
+            <img src="/sponsorlar/logoy6.png" alt="Sponsor 6" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
+            <img src="/sponsorlar/logo3.png" alt="Sponsor 7" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
+            <img src="/sponsorlar/logo2.png" alt="Sponsor 8" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
+        </div>
+
+        <h2 class="text-3xl font-bold text-white font-nasa">2025 Sponsorlarımız</h2>
+
+        <div class="flex flex-wrap justify-center items-center gap-10 px-12 pt-6 pb-24">
+            <img src="/sponsorlar/logoy1.png" alt="Sponsor 1" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
+            <img src="/sponsorlar/logo2.png" alt="Sponsor 2" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
+            <img src="/sponsorlar/logo3.png" alt="Sponsor 3" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
+            <img src="/sponsorlar/logo4.png" alt="Sponsor 4" class="w-60 object-contain opacity-80 hover:opacity-100 transition rounded-lg" />
         </div>
     </section>
 </Layout>
