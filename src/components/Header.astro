@@ -1,20 +1,48 @@
 ---
 ---
 
-<header class="bg-linear-to-r from-white to-black absolute z-50 w-full">
-    <nav class="flex p-4 lg:h-24 h-52 items-center justify-between">
-        <div class="flex text-2xl lg:text-5xl pr-6 shrink items-center font-nasa mix-blend-difference text-white">
+<header class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-white/90 to-black/90 backdrop-blur-md">
+    <nav class="flex flex-col lg:flex-row lg:h-24 px-6 py-4 items-center justify-between gap-4">
+
+        <!-- Logo -->
+        <div class="text-2xl lg:text-5xl font-nasa text-white mix-blend-difference shrink-0">
             TARAGAY
         </div>
 
+        <!-- Nav Links -->
         <div class="font-nasa">
-            <div class="flex flex-wrap gap-4">
-                <a href="/" class="text-md transition hover:text-gray-300 text-white">ANA SAYFA</a>
-                <a href="/ekibimiz" class="text-md transition hover:text-gray-300 text-white">EKİBİMİZ</a>
-                <a href="/basvurular" class="text-md transition hover:text-gray-300 text-white">BAŞVURULAR</a>
-                <a href="/galeri" class="text-md transition hover:text-gray-300 text-white">GALERİ</a>
-                <div class="cursor-not-allowed text-md transition hover:text-gray-300 text-white">MAĞAZA</div>
-            </div>
+            <ul class="flex flex-wrap justify-center lg:justify-end gap-6 text-md">
+                <li>
+                    <a href="/" class="text-white transition hover:text-gray-300">
+                        ANA SAYFA
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/ekibimiz" class="text-white transition hover:text-gray-300">
+                        EKİBİMİZ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/basvurular" class="text-white transition hover:text-gray-300">
+                        BAŞVURULAR
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/galeri" class="text-white transition hover:text-gray-300">
+                        GALERİ
+                    </a>
+                </li>
+
+                <li>
+          <span class="text-white cursor-not-allowed">
+            MAĞAZA
+          </span>
+                </li>
+            </ul>
         </div>
+
     </nav>
 </header>

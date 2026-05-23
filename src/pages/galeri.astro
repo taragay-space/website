@@ -2,23 +2,30 @@
 import Layout from "../layouts/Layout.astro";
 
 const images = [
-  { src: "/galeri/roket1.jpg", alt: "Roket 1" },
-  { src: "/galeri/roket2.jpg", alt: "Roket 2" },
-  { src: "/galeri/roket3.jpg", alt: "Roket 3" },
-  { src: "/galeri/roket4.png", alt: "Roket 4" },
-  { src: "/galeri/roket5.jpg", alt: "Roket 5" },
-  { src: "/galeri/roket6.jpg", alt: "Roket 6" },
-  { src: "/galeri/roket7.jpg", alt: "Roket 7" },
-  { src: "/galeri/roket8.png", alt: "Roket 8" },
+    { src: "/galeri/roket1.jpg", alt: "Roket 1" },
+    { src: "/galeri/roket2.jpg", alt: "Roket 2" },
+    { src: "/galeri/roket3.jpg", alt: "Roket 3" },
+    { src: "/galeri/roket4.png", alt: "Roket 4" },
+    { src: "/galeri/roket5.jpg", alt: "Roket 5" },
+    { src: "/galeri/roket6.jpg", alt: "Roket 6" },
+    { src: "/galeri/roket7.jpg", alt: "Roket 7" },
+    { src: "/galeri/roket8.png", alt: "Roket 8" },
 ];
 ---
 
 <Layout title="Galeri" description="Galeri Sayfası">
-    <div class="viewport">
-        <div class="track">
-            {images.concat(images).map((image) => (
-                    <div class="item">
-                        <img src={image.src} alt={image.alt} />
+    <!-- Centered Container with responsive vertical padding -->
+    <div class="flex min-h-screen w-full items-center justify-center px-4 py-14 md:py-28">
+        <!-- Responsive Grid: 1 col on mobile, 2 on tablet, 4 on desktop -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl w-full">
+            {images.map((img) => (
+                    <div class="aspect-square w-full overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <img
+                                src={img.src}
+                                alt={img.alt}
+                                class="h-full w-full object-cover object-center hover:scale-105 transition-transform duration-300"
+                                loading="lazy"
+                        />
                     </div>
             ))}
         </div>

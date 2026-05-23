@@ -11,12 +11,12 @@ type Props = {
 const { title, description } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="tr">
 	<head>
 		<BaseHead title={title} description={description} />
 	</head>
 
-	<body>
+	<body class="min-h-screen flex flex-col bg-black text-white antialiased">
 		<Header />
 
 		<main>
